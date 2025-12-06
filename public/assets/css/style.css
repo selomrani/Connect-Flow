@@ -1,10 +1,10 @@
-/* Apply Google Font */
+
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(60deg, #051937 0%, #004d7a 50%, #008793 75%, #00bf72 100%);
 }
 
-/* HERO SPECIFIC STYLES */
+
 
 .hero-section,
 .carousel-item {
@@ -30,10 +30,10 @@ body {
 
 .carousel-caption {
     z-index: 2;
-    bottom: 35%; /* Moved up slightly */
+    bottom: 35%; 
 }
 
-/* Typography Enhancements */
+
 .carousel-caption h1 {
     text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
     letter-spacing: 1px;
@@ -45,14 +45,14 @@ body {
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* CUSTOM BUTTONS */
+
 .hero-btns {
     display: flex;
     justify-content: center;
     gap: 20px; /* Space between buttons */
 }
 
-/* Common button properties */
+
 .btn-hero-primary,
 .btn-hero-outline {
     padding: 12px 35px;
@@ -64,7 +64,7 @@ body {
     text-decoration: none;
 }
 
-/* "Get Started" Button Styles */
+
 .btn-hero-primary {
     background-color: #00bf72; /* Matches your gradient end color */
     color: white;
@@ -79,7 +79,7 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* "About Us" Button Styles */
+
 .btn-hero-outline {
     background-color: transparent;
     color: white;

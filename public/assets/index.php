@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Flow - Hero Section</title>
+    <title>Connect Flow - Hero Section</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
                 <div class="hero-overlay"></div> 
                 <img src="img/AAAABcuF-ASdk8ggKxXR_kgnbvX1BAotwohyNYWx_jn7ixfCdiToeoYBnF_pXm8sLOqG-yy9Rgu4dUtjKdaiX9QlT4j-tUKRmBouW4zz.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="display-3 fw-bold mb-3">Welcome to Contact Flow</h1>
+                    <h1 class="display-3 fw-bold mb-3">Welcome to Connect Flow</h1>
                     <p class="lead mb-4">Streamline your communication effortlessly.</p>
                     
                     <div class="hero-btns">
