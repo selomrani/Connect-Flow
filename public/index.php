@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
             
             <div class="carousel-item active">
                 <div class="hero-overlay"></div> 
-                <img src="img/AAAABcuF-ASdk8ggKxXR_kgnbvX1BAotwohyNYWx_jn7ixfCdiToeoYBnF_pXm8sLOqG-yy9Rgu4dUtjKdaiX9QlT4j-tUKRmBouW4zz.jpg" alt="First slide">
+                <img src="assets/img/AAAABcuF-ASdk8ggKxXR_kgnbvX1BAotwohyNYWx_jn7ixfCdiToeoYBnF_pXm8sLOqG-yy9Rgu4dUtjKdaiX9QlT4j-tUKRmBouW4zz.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="display-3 fw-bold mb-3">Welcome to Connect Flow</h1>
                     <p class="lead mb-4">Streamline your communication effortlessly.</p>
@@ -43,7 +43,7 @@
 
             <div class="carousel-item">
                 <div class="hero-overlay"></div>
-                <img src="img/87240dbd-5c19-11f0-b655-025327c09033.avif" alt="Second slide">
+                <img src="assets/img/87240dbd-5c19-11f0-b655-025327c09033.avif" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="display-3 fw-bold mb-3">Connect Faster</h1>
                     <p class="lead mb-4">Our tools bridge the gap between you and your clients.</p>
@@ -57,7 +57,7 @@
 
             <div class="carousel-item">
                 <div class="hero-overlay"></div>
-                <img src="img/l-intro-1725389701.jpg" alt="Third slide">
+                <img src="assets/img/l-intro-1725389701.jpg" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="display-3 fw-bold mb-3">Secure & Reliable</h1>
                     <p class="lead mb-4">Trust us to handle your data with care.</p>
@@ -81,6 +81,6 @@
         </button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
