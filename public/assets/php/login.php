@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,9 +25,15 @@
         </form>
     </div>
 </body>
-
 </html>
 
-<!-- <?php
+<?php
+
 require_once __DIR__ . '/../../../src/config/connectdb.php';
-?> -->
+
+// $sql = "INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`) VALUES (NULL, 'phptrdt', 'eldsdxd@gmail.com', 'aaisdihfzpfihzjpcs', '+26222738839393');";
+
+// mysqli_query($connection, $sql);
+
+// mysqli_close($connection);
+?>
