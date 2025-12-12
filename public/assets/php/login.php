@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,15 +26,30 @@
         </form>
     </div>
 </body>
+
 </html>
 
 <?php
 
+session_start();
 require_once __DIR__ . '/../../../src/config/connectdb.php';
+require_once __DIR__ . '/../../../src/templates/functions.php';
+$user_data = check_login($connection);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = mysqli_real_escape_string($connection, $_POST["username"]);
+    $password = mysqli_real_escape_string($connection, $_POST["password"]);
+    $query = " SELECT * FROM users WHERE username = '$username' limit 1";
+    $result = mysqli_query($connection, $query);
+    if ($result) {
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
+            if ($user_data['password'] === $password) {
 
-// $sql = "INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`) VALUES (NULL, 'phptrdt', 'eldsdxd@gmail.com', 'aaisdihfzpfihzjpcs', '+26222738839393');";
-
-// mysqli_query($connection, $sql);
-
-// mysqli_close($connection);
+                $_SESSION['user_id'] = $user_data['user_id'];
+                header("Location: home.php");
+                die;
+            }
+        }
+    }
+}
 ?>

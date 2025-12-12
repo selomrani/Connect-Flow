@@ -42,9 +42,12 @@
 </html>
 
 <?php
+session_start();
+ require_once __DIR__ . '/../../../src/config/connectdb.php';
+  require_once __DIR__ . '/../../../src/templates/functions.php';
+  $user_data = check_login($connection);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    require_once __DIR__ . '/../../../src/config/connectdb.php';
 
     $username = mysqli_real_escape_string($connection, $_POST["username"]);
     $email    = mysqli_real_escape_string($connection, $_POST["email"]);
