@@ -3,6 +3,11 @@ session_start();
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php';
 $user_data = check_login($db_connect);
+if(isset($_POST['logout'])){
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +34,10 @@ $user_data = check_login($db_connect);
                 <img src="../img/user-solid-full.svg" alt="User" class="profile-avatar">
             </div>
             
-            <h5 class="fw-bold mb-1">Amelie Watson</h5>
-            <p class="text-secondary small mb-3">amel2@gmail.com</p>
-            
+            <h5 class="fw-bold mb-1"><?php echo"$user_data[username]"?></h5>
+            <p class="text-secondary small mb-3"><?php echo"$user_data[email]"?></p>
             <div class="d-inline-block bg-light text-secondary border rounded-pill px-3 py-2 mb-3 small fw-medium">
-                <i class="bi bi-calendar-check me-1"></i> Creation date
+                <i class="bi bi-calendar-check me-1"></i> <?php echo"$user_data[creation_date]"?>
             </div>
 
             <div class="row g-2 mt-2">
@@ -56,10 +60,11 @@ $user_data = check_login($db_connect);
                     </a>
                 </li>
             </ul>
-            
-            <button class="btn btn-outline-theme w-100 d-flex align-items-center justify-content-center gap-2 py-2">
+            <form action="home.php" method="post">
+            <button class="btn btn-outline-theme w-100 d-flex align-items-center justify-content-center gap-2 py-2" name="logout">
                 <i class="bi bi-box-arrow-right"></i> Log Out
             </button>
+            </form>
         </div>
     </aside>
 
