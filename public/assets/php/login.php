@@ -1,5 +1,4 @@
 <?php
-session_start();
 // $user_data = check_login($db_connect);
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php'; 
@@ -19,7 +18,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_data = $query->fetch(PDO::FETCH_ASSOC);
 
     if ($user_data && password_verify($password, $user_data['password'])) {
-        header ("location : home.php");   
+        session_start();
+        // header("location : home.php");
     } else {
         $error_message = "Invalid username or password.";
     }
