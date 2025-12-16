@@ -1,14 +1,17 @@
 <?php
 
-$db_server = "mysql"; 
-$db_user = "root";
-$db_pass = "SoufyanBackendProject$"; 
-$db_name = "ConnectFlow_db";
 
-$connection = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+$server = "mysql"; 
+$user = "root";
+$password = 'SoufyanBackendProject$'; 
+$database = "ConnectFlow_db";
 
-if(!$connection){
-    die("Connection failed: " . mysqli_connect_error());
+try {
+    $db_connect = new PDO("mysql:host=$server;dbname=$database", $user, $password);
+    
+    $db_connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
-
+catch(PDOException $e) {
+    echo "failed " . $e->getMessage();
+}
 ?>
