@@ -1,12 +1,9 @@
 <?php
 session_start();
-
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php';
-$user_data = check_login($connection);
-$query = "SELECT * FROM contacts WHERE user_id = $user_data[user_id]";
-$result = mysqli_query($connection, $query);
-$user_contacts = mysqli_fetch_all($result, MYSQLI_ASSOC);
+// $user_data = check_login($connection);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

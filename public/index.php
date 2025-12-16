@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="public/assets/img/Gemini_Generated_Image_r99gq2r99gq2r99g.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<?php require __DIR__ . '/../src/templates/header.php'; ?>
+<?php include __DIR__ . '/../src/templates/header.php'; ?>
 <body>
 
     <div id="heroCarousel" class="carousel slide hero-section" data-bs-ride="carousel">

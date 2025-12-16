@@ -2,27 +2,37 @@
 session_start();
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php';
-$user_data = check_login($connection);
+$error_message = "";
+$sucess_message="";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-    $username = mysqli_real_escape_string($connection, $_POST["username"]);
-    $email    = mysqli_real_escape_string($connection, $_POST["email"]);
-    $phone    = mysqli_real_escape_string($connection, $_POST["phone"]);
-    $password = mysqli_real_escape_string($connection, $_POST["password"]);
-    $confirm  = mysqli_real_escape_string($connection, $_POST["confirm_password"]);
+    $username = $_POST["username"];
+    $email    = $_POST["email"];
+    $phone    = $_POST["phone"];
+    $password = $_POST["password"];
+    $confirm  = $_POST["confirm_password"];
 
     if ($password !== $confirm) {
-        echo "<script>alert('Passwords do not match!');</script>";
-    } else {
+        $error_message = "The password values must match";
+    } 
 
-        $sql = "INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `phone_number`) 
-                VALUES (NULL, '$username', '$email', '$password', '$phone');";
-        mysqli_query($connection, $sql);
+    if(empty($error_message)){
+
+        $query = $db_connect->prepare("INSERT INTO `users` (`username`, `email`, `password`, `phone_number`)
+                VALUES (:username, :email, :password, :phone_number)");
+        
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        $query->execute([
+            'username'     => $username,
+            'email'        => $email,
+            'password'     => $hashed_password,
+            'phone_number' => $phone,
+        ]);
+
+        // header("location : login.php");
     }
-
-    mysqli_close($connection);
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,14 +49,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <form action="" method="post">
             <h1>Register</h1>
-
+            <?php if ($sucess_message): ?>
+                <p style="color: green; text-align: center;"><?php echo $error_message; ?></p>
+            <?php endif; ?>
+            <?php if ($error_message): ?>
+                <p style="color: red; text-align: center;"><?php echo $error_message; ?></p>
+            <?php endif; ?>
             <div class="input-field">
                 <input type="text" name="username" placeholder="username" required><i class='bx bxs-user'></i>
             </div>
             <div class="input-field">
                 <input type="email" name="email" required placeholder="email"><i class='bx bxs-envelope'></i>
             </div>
-
             <div class="input-field">
                 <input type="password" name="password" required placeholder="password"><i class='bx bxs-lock'></i>
             </div>
