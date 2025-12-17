@@ -1,6 +1,4 @@
 <?php
-
-
 $server = "mysql"; 
 $user = "root";
 $password = 'SoufyanBackendProject$'; 

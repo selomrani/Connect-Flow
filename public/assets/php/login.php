@@ -7,15 +7,9 @@ $error_message = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
-
-
     $query = $db_connect->prepare("SELECT * FROM users WHERE username = :username LIMIT 1");
-
-
     $query->execute(['username' => $username]);
-
     $user_data = $query->fetch(PDO::FETCH_ASSOC);
-
     if ($user_data && password_verify($password, $user_data['password'])) {
         session_start();
         $_SESSION['user_id'] = $user_data['user_id'];

@@ -3,34 +3,36 @@ session_start();
 require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php';
 $error_message = "";
-$sucess_message="";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $email    = $_POST["email"];
-    $phone    = $_POST["phone"];
-    $password = $_POST["password"];
-    $confirm  = $_POST["confirm_password"];
+$sucess_message = "";
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    header("Location: register.php");
+    exit();
+}
+$username = $_POST["username"];
+$email    = $_POST["email"];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $error_message = "Please enter a valid email";
+}
+$phone    = $_POST["phone"];
+$password = $_POST["password"];
+$confirm  = $_POST["confirm_password"];
+if ($password !== $confirm) {
+    $error_message = "The password values must match";
+}
 
-    if ($password !== $confirm) {
-        $error_message = "The password values must match";
-    } 
-
-    if(empty($error_message)){
-
-        $query = $db_connect->prepare("INSERT INTO `users` (`username`, `email`, `password`, `phone_number`)
+if (empty($error_message)) {
+    $query = $db_connect->prepare("INSERT INTO `users` (`username`, `email`, `password`, `phone_number`)
                 VALUES (:username, :email, :password, :phone_number)");
-        
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $query->execute([
-            'username'     => $username,
-            'email'        => $email,
-            'password'     => $hashed_password,
-            'phone_number' => $phone,
-        ]);
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    $query->execute([
+        'username'     => $username,
+        'email'        => $email,
+        'password'     => $hashed_password,
+        'phone_number' => $phone,
+    ]);
 
-        // header("location : login.php");
-    }
+    // header("location : login.php");
 }
 
 ?>
@@ -47,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="container">
-        <form action="" method="post">
+        <form action="" method="post" novalidate>
             <h1>Register</h1>
             <?php if ($sucess_message): ?>
                 <p style="color: green; text-align: center;"><?php echo $error_message; ?></p>
@@ -66,7 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
 
             <div class="input-field">
-                <input type="password" name="confirm_password" required placeholder="confirm password"><i class='bx bxs-lock'></i>
+                <input type="password" name="confirm_password" required placeholder="confirm password"><i
+                    class='bx bxs-lock'></i>
             </div>
 
             <div class="input-field">
