@@ -57,7 +57,7 @@ $user_contacts = $stmt->fetchAll();
                         </a>
                     </li>
                 </ul>
-                <form action="home.php" method="post">
+                <form action="Auth/logout.php" method="post">
                     <button class="btn btn-outline-theme w-100 d-flex align-items-center justify-content-center gap-2 py-2" name="logout">
                         <i class="bi bi-box-arrow-right"></i> Log Out
                     </button>
@@ -106,21 +106,22 @@ $user_contacts = $stmt->fetchAll();
                             </tr>
                         </thead>
                         <tbody>
-                            <?php  ?>
-                            <tr class="contact-row">
-                                <td class="ps-4">
-                                    <div class="d-flex align-items-center">
-                                        <img src="../img/user-solid-full.svg" class="avatar-small me-3" alt="">
-                                        <span class="fw-semibold">Ambre Duval</span>
-                                    </div>
-                                </td>
-                                <td class="text-secondary">(907) 532-3240</td>
-                                <td class="text-secondary">ambredu21@gmail.com</td>
-                                <td class="text-end pe-4">
-                                    <button class="btn btn-sm btn-outline-theme me-2 px-3"><i class="bi bi-pencil"></i> Edit</button>
-                                    <button class="btn btn-sm btn-outline-danger px-3"><i class="bi bi-trash"></i> Delete</button>
-                                </td>
-                            </tr>
+                            <?php foreach ($user_contacts as $contact): ?>
+                                <tr class="contact-row">
+                                    <td class="ps-4">
+                                        <div class="d-flex align-items-center">
+                                            <img src="../img/user-solid-full.svg" class="avatar-small me-3" alt="">
+                                            <span class="fw-semibold"><?php echo htmlspecialchars($contact['fullname']); ?></span>
+                                        </div>
+                                    </td>
+                                    <td class="text-secondary"><?php echo htmlspecialchars($contact['phone_number']); ?></td>
+                                    <td class="text-secondary"><?php echo htmlspecialchars($contact['email']); ?></td>
+                                    <td class="text-end pe-4">
+                                        <button class="btn btn-sm btn-outline-theme me-2 px-3"><i class="bi bi-pencil"></i> Edit</button>
+                                        <button class="btn btn-sm btn-outline-danger px-3"><i class="bi bi-trash"></i> Delete</button>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
