@@ -4,10 +4,8 @@ require_once __DIR__ . '/../../../src/config/connectdb.php';
 require_once __DIR__ . '/../../../src/functions.php';
 $error_message = "";
 $sucess_message = "";
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: register.php");
-    exit();
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // header("Location: register.php");
 $username = $_POST["username"];
 $email    = $_POST["email"];
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -34,7 +32,7 @@ if (empty($error_message)) {
 
     // header("location : login.php");
 }
-
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

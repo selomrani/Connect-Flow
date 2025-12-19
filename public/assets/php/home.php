@@ -11,7 +11,6 @@ $user_contacts = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,7 +39,7 @@ $user_contacts = $stmt->fetchAll();
                 <div class="row g-2 mt-2">
                     <div class="col-12">
                         <div class="stat-box">
-                            <div class="fw-bold fs-5 text-theme">128</div>
+                            <div class="fw-bold fs-5 text-theme">99</div>
                             <div class="small text-muted" style="font-size: 0.7rem;">Contacts</div>
                         </div>
                     </div>
