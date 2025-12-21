@@ -3,19 +3,43 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
         }
 
-        .text-theme { color: #198754; }
-        .bg-theme-subtle { background-color: #d1e7dd; color: #0f5132; }
-        .btn-theme { background-color: #198754; color: white; border-color: #198754; }
-        .btn-theme:hover { background-color: #157347; border-color: #146c43; color: white;}
-        .btn-outline-theme { color: #198754; border-color: #198754; }
-        .btn-outline-theme:hover { background-color: #198754; color: white; }
+        .text-theme {
+            color: #198754;
+        }
+
+        .bg-theme-subtle {
+            background-color: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .btn-theme {
+            background-color: #198754;
+            color: white;
+            border-color: #198754;
+        }
+
+        .btn-theme:hover {
+            background-color: #157347;
+            border-color: #146c43;
+            color: white;
+        }
+
+        .btn-outline-theme {
+            color: #198754;
+            border-color: #198754;
+        }
+
+        .btn-outline-theme:hover {
+            background-color: #198754;
+            color: white;
+        }
 
         .sidebar {
             width: 280px;
             background: white;
             border-right: 1px solid #eaeaea;
         }
-        
+
         .nav-link {
             color: #555;
             font-weight: 500;
@@ -25,9 +49,10 @@
             align-items: center;
             transition: all 0.2s;
         }
-        
+
         .nav-link:hover {
-            background-color: #f0fdf4; /* Light green hover */
+            background-color: #f0fdf4;
+            /* Light green hover */
             color: #198754;
         }
 
@@ -40,14 +65,14 @@
             text-align: center;
             padding: 20px 10px;
         }
-        
+
         .profile-avatar {
             width: 100px;
             height: 100px;
             object-fit: cover;
             border-radius: 50%;
             border: 4px solid #f8f9fa;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-bottom: 15px;
         }
 
@@ -57,6 +82,7 @@
             padding: 10px;
             text-align: center;
         }
+
         .table-custom th {
             font-weight: 600;
             color: #888;
@@ -64,7 +90,7 @@
             border-bottom: 1px solid #eee;
             padding-bottom: 15px;
         }
-        
+
         .table-custom td {
             vertical-align: middle;
             padding: 15px 0.5rem;
@@ -83,4 +109,32 @@
             background-color: white;
             border: 1px solid #dee2e6;
             border-radius: 8px;
+        }
+
+        #darkModeToggle {
+            width: 32px !important;
+            height: 32px !important;
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background-color: transparent;
+            border: 1px solid #dee2e6;
+            /* Match your search input border */
+            color: #6c757d;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+            /* Spacing from the logo */
+        }
+
+        #darkModeToggle:hover {
+            background-color: #f8f9fa;
+            color: #198754;
+            /* Theme green on hover */
+            border-color: #198754;
+        }
+        #darkModeToggle i {
+            font-size: 1rem;
+            margin: 0;
         }

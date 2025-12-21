@@ -28,6 +28,9 @@ $user_contacts = $stmt->fetchAll();
                 <i class="bi bi-circle-half text-theme fs-3 me-2"></i>
                 <span class="fs-4 fw-bold text-theme">Connect Flow</span>
             </a>
+            <button id="darkModeToggle" class="btn">
+                <i class="bi bi-moon-stars"></i>
+            </button>
             <div class="profile-section mb-4">
                 <div class="d-inline-block">
                     <img src="../img/user-solid-full.svg" alt="User" class="profile-avatar">
@@ -118,9 +121,12 @@ $user_contacts = $stmt->fetchAll();
                                     <td class="text-secondary"><?php echo htmlspecialchars($contact['email']); ?></td>
                                     <td class="text-end pe-4">
                                         <div class="d-flex justify-content-end align-items-center gap-2">
-                                            <button class="btn btn-sm btn-outline-theme px-3">
-                                                <i class="bi bi-pencil"></i> Edit
-                                            </button>
+                                            <form action="./Contacts_crud/update.php" method="get">
+                                                <input type="hidden" name="update" value="<?php echo htmlspecialchars($contact['id']); ?>">
+                                                <button type="submit" class="btn btn-sm btn-outline-theme px-3">
+                                                    <i class="bi bi-pencil"></i> Edit
+                                                </button>
+                                            </form>
                                             <form action="./Contacts_crud/delete.php" method="post" class="m-0">
                                                 <input type="hidden" name="delete" value="<?php echo htmlspecialchars($contact['id']); ?>">
                                                 <button type="submit" class="btn btn-sm btn-outline-danger px-3">
@@ -171,7 +177,7 @@ $user_contacts = $stmt->fetchAll();
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> 
 </body>
 
 </html>
